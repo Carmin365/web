@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<title>Formulario JavaScript </title>
+	<style>
+		body {
+			background-color: blueviolet;
+			color: white;
+			font: normal 20pt Arial;
+		}
+		h1{
+			color: rgb(8, 2, 2);
+		}
+	</style>
+	<script>
+		document.write("<h2>"+document.title+"</h2>");
+	</script>
+	<h1>Carmin Portfolio</h1>
+
+
+<script>
+
+	function validarForm(){
+	var val=document.getElementById("valido");
+	try{
+	 var x=document.forms["meuForm"]["nome"].value;
+	 if(x==null || x==""){
+	  throw "O Nome deve ser preenchido!";
+	 }
+	 var y=document.forms["meuForm"]["email"].value;
+	 var atpos = y.indexOf("@");
+	 var dotpos = y.lastIndexOf(".");
+	 if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= y.lenght){
+	  throw "Digite um email válido!";
+} 
+return true;
+
+} catch (err){
+	val.style.color = "#FF0000";
+	val.innerHTML = "Erro: " + err;
+	return false;
+} //Fim cath
+} //Fim function
+</script>
+</head>
+
+<body><script src="meuscript.js"></script>
+	<p>Olá, meu nome é Carmin e sou UX/UI Designer Freelancer e Desenvolvedora Fullstack.</p>
+	<p>Receba minhas mais recentes postagens no seu email</p>
+<form name="meuForm" action="recebe.php"
+		onsubmit="return validarForm();" method="post">
+	Nome: <input type="text" name="nome"><br>
+	Sobrenome: <input type="text" name="sobrenome"><br>
+	Email: <input type="text" name="email"><br>
+	<input type="submit" value="Enviar">
+</form>
+<p id="valido"> Preencha o formulário e clique em Enviar</p>
+
+
+<p>Os dados inseridos acima devem ser <i>verdadeiros</i>.</p>
+<script>
+	window.alert('Ir para o formulário')
+	window.confirm('Tem certeza que quer ir para o formulário?')
+	window.prompt('Qual o seu nome?')
+</script>
+</body>
+</html>
